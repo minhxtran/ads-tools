@@ -81,7 +81,7 @@ clock() {
 	fi
 
 	if [ -n "${sync_num}" ] && ([ -z "${clock_num}" ] || [ ${sync_num} -le ${clock_num} ]); then
-		left_blocks=$(( (`date +%s` / 512) - ("0x${sync_block}" / 512) ))
+		left_blocks=$(( (`date +%s` / 512) - (0x${sync_block} / 512) ))
 		if [ -n "$4" ]; then
 			 if [ -n "$3" ]; then
 		        date_msg ${sync_time} "Database synchronizing; left ${left_blocks} blocks"
